@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/CMakeFiles/picodebouncebutton-populate"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/CMakeFiles/picodebouncebutton-populate.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/CMakeFiles/picodebouncebutton-populate-complete.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/picodebouncebutton-populate-prefix/src/picodebouncebutton-populate-stamp/picodebouncebutton-populate-build.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/picodebouncebutton-populate-prefix/src/picodebouncebutton-populate-stamp/picodebouncebutton-populate-configure.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/picodebouncebutton-populate-prefix/src/picodebouncebutton-populate-stamp/picodebouncebutton-populate-download.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/picodebouncebutton-populate-prefix/src/picodebouncebutton-populate-stamp/picodebouncebutton-populate-install.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/picodebouncebutton-populate-prefix/src/picodebouncebutton-populate-stamp/picodebouncebutton-populate-mkdir.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/picodebouncebutton-populate-prefix/src/picodebouncebutton-populate-stamp/picodebouncebutton-populate-patch.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/picodebouncebutton-populate-prefix/src/picodebouncebutton-populate-stamp/picodebouncebutton-populate-test.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/picodebouncebutton-populate-prefix/src/picodebouncebutton-populate-stamp/picodebouncebutton-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"picodebouncebutton-populate"
+		],
+		"name" : "picodebouncebutton-populate"
+	}
+}

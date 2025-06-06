@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "pico-sdk/tools",
+		"source" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/pico-sdk/tools"
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/CMakeFiles/picoresponsiveanalogread-populate"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/CMakeFiles/picoresponsiveanalogread-populate.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/CMakeFiles/picoresponsiveanalogread-populate-complete.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/picoresponsiveanalogread-populate-prefix/src/picoresponsiveanalogread-populate-stamp/picoresponsiveanalogread-populate-build.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/picoresponsiveanalogread-populate-prefix/src/picoresponsiveanalogread-populate-stamp/picoresponsiveanalogread-populate-configure.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/picoresponsiveanalogread-populate-prefix/src/picoresponsiveanalogread-populate-stamp/picoresponsiveanalogread-populate-download.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/picoresponsiveanalogread-populate-prefix/src/picoresponsiveanalogread-populate-stamp/picoresponsiveanalogread-populate-install.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/picoresponsiveanalogread-populate-prefix/src/picoresponsiveanalogread-populate-stamp/picoresponsiveanalogread-populate-mkdir.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/picoresponsiveanalogread-populate-prefix/src/picoresponsiveanalogread-populate-stamp/picoresponsiveanalogread-populate-patch.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/picoresponsiveanalogread-populate-prefix/src/picoresponsiveanalogread-populate-stamp/picoresponsiveanalogread-populate-test.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoresponsiveanalogread-subbuild/picoresponsiveanalogread-populate-prefix/src/picoresponsiveanalogread-populate-stamp/picoresponsiveanalogread-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"picoresponsiveanalogread-populate"
+		],
+		"name" : "picoresponsiveanalogread-populate"
+	}
+}

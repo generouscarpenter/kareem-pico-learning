@@ -1,0 +1,117 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"include"
+		],
+		"files" : 
+		[
+			"build/_deps/picodebouncebutton-src/cmake/install-rules.cmake",
+			"build/_deps/picodebouncebutton-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 42,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 55,
+				"parent" : 2
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 3,
+			"component" : "PicoDebounceButton_Development",
+			"destination" : "include",
+			"paths" : 
+			[
+				{
+					"from" : "build/_deps/picodebouncebutton-src/include",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "PicoDebounceButton_Development",
+			"destination" : "share/PicoDebounceButton",
+			"paths" : 
+			[
+				{
+					"from" : "build/_deps/picodebouncebutton-src/cmake/install-config.cmake",
+					"to" : "PicoDebounceButtonConfig.cmake"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "PicoDebounceButton_Development",
+			"destination" : "share/PicoDebounceButton",
+			"paths" : 
+			[
+				"build/_deps/picodebouncebutton-build/PicoDebounceButtonConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "PicoDebounceButton_Development",
+			"destination" : "share/PicoDebounceButton",
+			"exportName" : "PicoDebounceButtonTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "PicoDebounceButton_PicoDebounceButton::@8a8a1d7196183856f3f0",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"_deps/picodebouncebutton-build/CMakeFiles/Export/92a11ba2137ef6eeaa0eba81767ddd32/PicoDebounceButtonTargets.cmake"
+			],
+			"type" : "export"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/picodebouncebutton-build",
+		"source" : "build/_deps/picodebouncebutton-src"
+	}
+}

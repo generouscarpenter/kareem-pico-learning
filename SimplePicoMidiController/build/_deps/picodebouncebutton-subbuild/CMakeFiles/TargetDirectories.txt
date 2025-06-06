@@ -1,0 +1,3 @@
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/CMakeFiles/picodebouncebutton-populate.dir
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/CMakeFiles/edit_cache.dir
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picodebouncebutton-subbuild/CMakeFiles/rebuild_cache.dir

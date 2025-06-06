@@ -1,0 +1,117 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"include"
+		],
+		"files" : 
+		[
+			"build/_deps/picoresponsiveanalogread-src/cmake/install-rules.cmake",
+			"build/_deps/picoresponsiveanalogread-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 42,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 55,
+				"parent" : 2
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 3,
+			"component" : "PicoResponsiveAnalogRead_Development",
+			"destination" : "include",
+			"paths" : 
+			[
+				{
+					"from" : "build/_deps/picoresponsiveanalogread-src/include",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "PicoResponsiveAnalogRead_Development",
+			"destination" : "share/PicoResponsiveAnalogRead",
+			"paths" : 
+			[
+				{
+					"from" : "build/_deps/picoresponsiveanalogread-src/cmake/install-config.cmake",
+					"to" : "PicoResponsiveAnalogReadConfig.cmake"
+				}
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "PicoResponsiveAnalogRead_Development",
+			"destination" : "share/PicoResponsiveAnalogRead",
+			"paths" : 
+			[
+				"build/_deps/picoresponsiveanalogread-build/PicoResponsiveAnalogReadConfigVersion.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "PicoResponsiveAnalogRead_Development",
+			"destination" : "share/PicoResponsiveAnalogRead",
+			"exportName" : "PicoResponsiveAnalogReadTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "PicoResponsiveAnalogRead_PicoResponsiveAnalogRead::@f2fca5eb727599ce866f",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"_deps/picoresponsiveanalogread-build/CMakeFiles/Export/04f8f291bae4938bf4e88db41f753b24/PicoResponsiveAnalogReadTargets.cmake"
+			],
+			"type" : "export"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/picoresponsiveanalogread-build",
+		"source" : "build/_deps/picoresponsiveanalogread-src"
+	}
+}

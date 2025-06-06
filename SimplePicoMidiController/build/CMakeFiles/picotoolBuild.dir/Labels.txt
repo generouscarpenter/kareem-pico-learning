@@ -1,0 +1,14 @@
+# Target labels
+ picotoolBuild
+# Source files and their labels
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/CMakeFiles/picotoolBuild
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/CMakeFiles/picotoolBuild.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/CMakeFiles/picotoolBuild-complete.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/picotool/src/picotoolBuild-stamp/picotoolBuild-build.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/picotool/src/picotoolBuild-stamp/picotoolBuild-configure.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/picotool/src/picotoolBuild-stamp/picotoolBuild-download.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/picotool/src/picotoolBuild-stamp/picotoolBuild-install.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/picotool/src/picotoolBuild-stamp/picotoolBuild-mkdir.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/picotool/src/picotoolBuild-stamp/picotoolBuild-patch.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/picotool/src/picotoolBuild-stamp/picotoolBuild-test.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/picotool/src/picotoolBuild-stamp/picotoolBuild-update.rule

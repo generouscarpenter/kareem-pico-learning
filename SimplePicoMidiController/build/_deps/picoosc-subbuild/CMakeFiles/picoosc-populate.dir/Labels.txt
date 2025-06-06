@@ -1,0 +1,14 @@
+# Target labels
+ picoosc-populate
+# Source files and their labels
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/picoosc-populate
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/picoosc-populate.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/picoosc-populate-complete.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-build.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-configure.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-download.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-install.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-mkdir.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-patch.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-test.rule
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-update.rule

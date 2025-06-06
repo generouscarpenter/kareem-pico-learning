@@ -1,0 +1,3 @@
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/picoosc-populate.dir
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/edit_cache.dir
+/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/rebuild_cache.dir

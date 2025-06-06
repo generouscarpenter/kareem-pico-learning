@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/picoosc-populate"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/picoosc-populate.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/CMakeFiles/picoosc-populate-complete.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-build.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-configure.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-download.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-install.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-mkdir.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-patch.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-test.rule"
+		},
+		{
+			"file" : "/Users/kareemelnaggar/Documents/GitHub/kareem-pico-learning/SimplePicoMidiController/build/_deps/picoosc-subbuild/picoosc-populate-prefix/src/picoosc-populate-stamp/picoosc-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"picoosc-populate"
+		],
+		"name" : "picoosc-populate"
+	}
+}
