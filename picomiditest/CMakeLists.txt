@@ -34,11 +34,11 @@ project(picomiditest C CXX ASM)
 pico_sdk_init()
 
 # next is copied from https://diyelectromusic.com/2022/10/04/getting-started-with-the-raspberry-pi-pico-c-c-sdk-and-tinyusb-midi/
-add_executable(picomiditest)
-target_sources(picomiditest PUBLIC
-    ${CMAKE_CURRENT_LIST_DIR}/main.c
-    ${CMAKE_CURRENT_LIST_DIR}/usb_descriptors.c
-)
+# edited based on dan's work
+add_executable(picomiditest main.c cdc_app.c usb_descriptors.c midi.c)
+
+pico_set_program_name(picomiditest "picomiditest")
+pico_set_program_version(picomiditest "0.1")
 
 # enable usb serial output & disable uart
 pico_enable_stdio_uart(picomiditest 0)
@@ -50,7 +50,12 @@ ${CMAKE_CURRENT_LIST_DIR})
 
 # In addition to pico_stdlib required for common PicoSDK functionality, add dependency on tinyusb_device
 # for TinyUSB device support and tinyusb_board for the additional board support library used by the example
-target_link_libraries(picomiditest PUBLIC pico_stdlib tinyusb_device tinyusb_board hardware_adc)
+target_link_libraries(picomiditest
+                      pico_stdlib
+                      tinyusb_device
+                      tinyusb_board
+                      hardware_adc
+)
 
 # Uncomment this line to enable fix for Errata RP2040-E5 (the fix requires use of GPIO 15)
 #target_compile_definitions(picomidirouter PUBLIC PICO_RP2040_USB_DEVICE_ENUMERATION_FIX=1)
