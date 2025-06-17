@@ -17,9 +17,6 @@
 
 #include <hardware/structs/qmi.h>
 
-// pwm stuff:
-
-
 //#define OVERCLOCK_300MHZ  
 #define OVERCLOCK_400MHZ      //See RP2350 datasheet, QMI: M0_TIMING, M1_TIMING Registers, CLKDIV bits
 
