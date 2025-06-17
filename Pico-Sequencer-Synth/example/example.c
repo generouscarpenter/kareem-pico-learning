@@ -15,7 +15,10 @@
 #include "pico/stdlib.h"
 #include <synth_sequencer.h>
 
-#define SAMPLE_RATE 22050
+//overclock pico:
+set_clock_
+
+#define SAMPLE_RATE 48000
 // 44100 Hz is the default sample rate, but it breaks
 // a little with complex sequences (more than 3 voices)
 
@@ -97,6 +100,7 @@ const int16_t notes[NUM_VOICES][NUM_NOTES] = {
 
 int main() {
   stdio_init_all();
+  set_sys_clock_khz(300000, true);  // Set the system clock to 300MHz
   AudioChannel * voices = synth_init(NUM_VOICES, SAMPLE_RATE);
 
   #if USE_AUDIO_PWM

@@ -21,10 +21,11 @@ int main() {
         //im changing this to 5V
         const float conversion_factor = 3.3f / (1 << 12);
         uint16_t result = adc_read();
-        printf("Raw value: 0x%03x, voltage: %f V\n", result, result * conversion_factor);
-        printf("Voltage: %f V\n", result * conversion_factor);
-	float voltage = result * conversion_factor;
-	printf("Voltage variable: %f V\n", voltage);
-        sleep_ms(500);
+        //printf("Raw value: 0x%03x, voltage: %f V\n", result, result * conversion_factor);
+        //printf("Voltage: %f V\n", result * conversion_factor);
+        printf("ADC value: %d\n", adc_read()); // serial output
+	//float voltage = result * conversion_factor;
+	//printf("Voltage variable: %f V\n", voltage);
+        sleep_ms(50);
     }
 }

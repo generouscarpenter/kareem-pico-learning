@@ -39,7 +39,10 @@
     "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
     "files.associations": {
         "tusb.h": "c",
-        "gpio.h": "c"
+        "gpio.h": "c",
+        "stdlib.h": "c",
+        "cstdint": "c",
+        "adc.h": "c"
     },
     "C_Cpp.default.compilerPath": "/opt/homebrew/bin/arm-none-eabi-gcc"
 }
