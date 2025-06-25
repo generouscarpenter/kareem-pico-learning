@@ -20,7 +20,7 @@ if (EXISTS ${picoVscode})
    include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico CACHE STRING "Board type")
+set(PICO_BOARD pico2 CACHE STRING "Board type")
 
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
