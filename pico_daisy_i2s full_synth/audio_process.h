@@ -1,6 +1,3 @@
-
-
-
 #ifndef _AUDIO_PROCESS_H_
 #define _AUDIO_PROCESS_H_ 1
 
@@ -66,4 +63,3 @@ void control_val_changed(u8 control_num, u16 val);
 
 
 #endif 
-

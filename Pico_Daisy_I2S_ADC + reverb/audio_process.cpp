@@ -208,7 +208,7 @@ void control_val_changed(u8 control_num, u16 val)
 
         case 2:
         {  
-            fval = mapfloat(fval, 0, 1, 0.001, 1);
+            fval = mapfloat(fval, 0, 1, 0.001, 0.8);
             //m_filter.SetRes(fval);
         {   //fval *= 4000;   
             reverb.SetFeedback(fval);  

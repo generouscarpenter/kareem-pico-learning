@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "math.h"
 #include "audio_process.h"
+#include "buttons.h"
 
 #define NUM_SAMPLES 700   // 700 samples takes about 9ms here
 
