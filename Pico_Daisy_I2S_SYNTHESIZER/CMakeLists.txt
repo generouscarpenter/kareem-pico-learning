@@ -101,7 +101,7 @@ pico_generate_pio_header(audio_i2s ${CMAKE_CURRENT_LIST_DIR}/sound_i2s/sound_i2s
 add_executable(Pico_project 
                         main.cpp
                         adc.cpp
-                        buttons.cpp
+                        #buttons.cpp
                         audio_process.cpp
                         #midi/midi.cpp
                         sound_i2s/sound_i2s.c
@@ -188,6 +188,7 @@ target_link_libraries(  Pico_project        #THIS PROJECT
                         hardware_irq
                         hardware_pio
                         hardware_pwm
+                        hardware_gpio
                         hardware_sync
                         hardware_vreg
                         pico_bootrom

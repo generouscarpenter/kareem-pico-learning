@@ -5,7 +5,7 @@
 
 // all based on the Raspberry Pi Pico SDK
 
-const uint BUTTON_PIN = 13;
+const uint BUTTON_PIN = 10;
 
 int main() {
     stdio_init_all();

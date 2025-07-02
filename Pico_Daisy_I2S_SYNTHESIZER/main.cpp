@@ -14,7 +14,7 @@
 //#include "midi/midi.h"
 #include "sound_i2s/sound_i2s.h"
 #include "adc.h"
-#include "buttons.h"
+//#include "buttons.h"
 #include <hardware/structs/qmi.h>
 
 
@@ -132,7 +132,7 @@ int main()
 
     board_init();
     init_pins();
-    init_buttons();
+    //init_buttons();
 
     init_audio_code();
 
@@ -223,7 +223,7 @@ int main()
             this_millis = board_millis();
             //usb_midi_task();
             check_adc_vals();
-            process_buttons();
+            //process_buttons();
 
         }
         
@@ -370,9 +370,4 @@ void print_cpu_performance_information()
     core0_main_count = 0;
     audio_interrupt_count = 0;
     core1_main_count = 0;
-
-
-
 }
-
-
