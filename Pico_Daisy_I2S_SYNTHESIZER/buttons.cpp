@@ -146,10 +146,4 @@ void process_buttons()
 	{
 		this_b = 0;
 	}	 
-	
-
-
-
-	  
-
 }

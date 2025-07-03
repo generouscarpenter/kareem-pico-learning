@@ -17,8 +17,9 @@ alignas(32) int16_t buffer_1[I2S_BLOCK_SIZE * 2];
 
 Oscillator sine_osc;
 Oscillator rect_osc;
+Oscillator lfo;
 
-static Tone lpf;
+static MoogLadder m_filter;
 static Overdrive overdrive;
 static ReverbSc reverb;
 
@@ -51,12 +52,19 @@ void init_audio_code(void)
     rect_osc.SetAmp(0.5);
 
     // initialize Moogladder object
-    lpf.Init(SAMPLE_RATE);
-    lpf.SetFreq(0.1);
+    m_filter.Init(SAMPLE_RATE);
+    m_filter.SetRes(0.7);
 
     // intitialize reverb
 
     reverb.Init(SAMPLE_RATE);
+
+    // set parameters for LFO
+    lfo.Init(SAMPLE_RATE);
+    lfo.SetWaveform(Oscillator::WAVE_TRI);
+    lfo.SetAmp(1);
+    lfo.SetFreq(.4);
+
 }
 
 
@@ -92,8 +100,12 @@ void process_audio(void)
         float sine_sig = sine_osc.Process();
         float rect_sig = rect_osc.Process();
 
+        //*** TAKE LFO OUTPUT TO SET MOOG FILTER ***
+        float lfo_sig  = lfo.Process();
+        float freq = 5000 + (lfo_sig * 5000);
+        m_filter.SetFreq(freq);
         //*** PUT WAVEFORMS THROUGH FILTER  ***
-        float filter_output = lpf.Process(rect_sig+sine_sig);
+        float filter_output = m_filter.Process(rect_sig+sine_sig);
 
         //RUN FILTER THRU REVERB
         float reverb_inL = filter_output;
@@ -188,8 +200,9 @@ void control_val_changed(u8 control_num, u16 val)
             // {
             //     rect_osc.SetPw(fval);
             // }
-            fval = mapfloat(fval, 0, 1, 20, 5000);
-            lpf.SetFreq(fval);
+            fval = mapfloat(fval, 0, 1, 0.001, 30);
+            
+            lfo.SetFreq(fval);
 
         }break;
 
@@ -204,4 +217,3 @@ void control_val_changed(u8 control_num, u16 val)
         }break;
     }
 }
-

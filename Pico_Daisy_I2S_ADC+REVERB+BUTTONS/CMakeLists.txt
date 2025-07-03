@@ -87,6 +87,7 @@ add_executable(Pico_project
                         main.cpp
                         adc.cpp
                         audio_process.cpp
+                        buttons.cpp
                         midi/midi.cpp
                         sound_i2s/sound_i2s.c
                         usb/cdc_app.c 

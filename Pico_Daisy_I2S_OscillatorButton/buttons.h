@@ -7,5 +7,7 @@
 
 void init_buttons();
 void process_buttons();
+int button_counter();
+extern int button_count;
 
 #endif

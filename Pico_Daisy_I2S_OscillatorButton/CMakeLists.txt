@@ -86,8 +86,8 @@ pico_generate_pio_header(audio_i2s ${CMAKE_CURRENT_LIST_DIR}/sound_i2s/sound_i2s
 add_executable(Pico_project 
                         main.cpp
                         adc.cpp
-                        buttons.cpp
                         audio_process.cpp
+                        buttons.cpp
                         midi/midi.cpp
                         sound_i2s/sound_i2s.c
                         usb/cdc_app.c 
@@ -197,4 +197,4 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
         # USE_AUDIO_PWM=1
         USE_AUDIO_I2S=1
         )
-
+        

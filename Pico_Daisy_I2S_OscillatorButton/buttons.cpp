@@ -1,10 +1,8 @@
 #include "main.h"
-#include "pico/multicore.h"
-#include "pico/stdlib.h"
 #include <stdio.h>
-#include "math.h"
-#include "audio_process.h"
 #include "buttons.h"
+#include "hardware/gpio.h"
+#include "audio_process.h"
 
 #define NUM_PINS 3
 #define NUM_BUTTONS NUM_PINS
@@ -36,6 +34,19 @@ enum
     BUTTON_THREE
 };
 
+int button_count = 0;
+
+int button_counter(){
+    
+    if(button_count < 3){
+        button_count++;
+    }
+    else{
+        button_count = 0;
+    }
+    printf("Button Count: %d\n", button_count);
+    return button_count;
+}
 
 void button_event(u8 this_b)
 {
@@ -43,10 +54,7 @@ void button_event(u8 this_b)
     {
         case BUTTON_ONE:
         {
-            // Do something for button one
-            printf("Button One Pressed\n");
-            // Example: toggle an LED or change a setting
-            // gpio_put(LED_PIN, !gpio_get(LED_PIN)); // Toggle LED state
+            button_counter();
         }
         break;
 
@@ -73,16 +81,16 @@ void button_event(u8 this_b)
 
 u8 getSwitchState(u8 this_pin)
 {
-    gpio_get(button_pin[this_pin]);
+    return gpio_get(button_pin[this_pin]);
 }
 
 
 
 typedef enum B_STATE
 {
-	SW_OFF,                 // 10 
-    SW_GOING_ON,            // 11
-	SW_ON                   // 12
+	SW_OFF,                
+    SW_GOING_ON,
+	SW_ON               
 
 }B_STATE;
 
@@ -116,7 +124,7 @@ void process_buttons()
     //****  GOING ON  ****************
     else if(b_state[this_b] == SW_GOING_ON)
 	{
-		if( board_millis(); - b_time[this_b] > 10)
+		if( board_millis() - b_time[this_b] > 10)
 		{
 		 	if(pin_state)
 			{
@@ -144,14 +152,8 @@ void process_buttons()
 	}
 	
     this_b++;
-	if(this_b > NUM_BUTTONS)
+	if(this_b >= NUM_BUTTONS)
 	{
 		this_b = 0;
 	}	 
-	
-
-
-
-	  
-
 }

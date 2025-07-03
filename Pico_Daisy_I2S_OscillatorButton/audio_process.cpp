@@ -8,24 +8,28 @@
 #include "pico/sync.h"
 #include "daisysp.h"
 #include "daisysp-lgpl.h"
+#include "buttons.h"
 using namespace daisysp;
 
 alignas(32) int16_t buffer_0[I2S_BLOCK_SIZE * 2];
 alignas(32) int16_t buffer_1[I2S_BLOCK_SIZE * 2];
 
-
+#define OSC_NUMBER 5
 
 Oscillator sine_osc;
 Oscillator tri_osc;
 Oscillator saw_osc;
 Oscillator square_osc;
+Oscillator rect_osc;
+Oscillator lfo;
 
-static Tone lpf;
-
+static MoogLadder m_filter;
 static Overdrive overdrive;
 static ReverbSc reverb;
 
 #define START_FREQ 80.f
+
+
 
 
 u32 audio_interrupt_count;
@@ -36,41 +40,73 @@ u32 audio_interrupt_count;
 
 void init_audio_code(void)
 {
-    // initialize each oscillator:
-    sine_osc.Init(SAMPLE_RATE);
+    //init all 4 wave types:
+
+   sine_osc.Init(SAMPLE_RATE);
+   // Set parameters for oscillator
     sine_osc.SetWaveform(sine_osc.WAVE_SIN);
     sine_osc.SetFreq(START_FREQ);
     sine_osc.SetAmp(0.5);
 
-/*
-    tri_osc.Init(SAMPLE_RATE);
-    tri_osc.SetWaveform(square_osc.WAVE_TRI);
+   tri_osc.Init(SAMPLE_RATE);
+   // Set parameters for oscillator
+    tri_osc.SetWaveform(tri_osc.WAVE_TRI);
     tri_osc.SetFreq(START_FREQ);
     tri_osc.SetAmp(0.5);
 
-
     saw_osc.Init(SAMPLE_RATE);
-    saw_osc.SetWaveform(square_osc.WAVE_SAW);
+   // Set parameters for oscillator
+    saw_osc.SetWaveform(saw_osc.WAVE_SAW);
     saw_osc.SetFreq(START_FREQ);
     saw_osc.SetAmp(0.5);
 
-
     square_osc.Init(SAMPLE_RATE);
+    // Set parameters for oscillator
     square_osc.SetWaveform(square_osc.WAVE_SQUARE);
     square_osc.SetFreq(START_FREQ);
     square_osc.SetAmp(0.5);
 
-*/
-    //init filter
-    lpf.Init(SAMPLE_RATE);
-    lpf.SetFreq(0.1);
+    rect_osc.Init(SAMPLE_RATE);
 
-    
-    // initialize effects
+   // Set parameters for oscillator
+    rect_osc.SetWaveform(sine_osc.WAVE_POLYBLEP_SQUARE);
+    rect_osc.SetFreq(START_FREQ);
+    rect_osc.SetAmp(0.5);
+
+    // initialize Moogladder object
+    m_filter.Init(SAMPLE_RATE);
+    m_filter.SetRes(0.7);
+
+    // intitialize reverb
+
     reverb.Init(SAMPLE_RATE);
+
+    // set parameters for LFO
+    lfo.Init(SAMPLE_RATE);
+    lfo.SetWaveform(Oscillator::WAVE_TRI);
+    lfo.SetAmp(1);
+    lfo.SetFreq(.4);
 
 }
 
+
+float choose_osc(int osc_num){
+    switch (osc_num) {
+        case 0:
+            return sine_osc.Process();
+            break;
+        case 1:
+            return tri_osc.Process();
+            break;
+        case 2:
+            return saw_osc.Process();
+            break;
+        case 3:
+            return square_osc.Process();
+            break;
+        default: return 0.0f;
+    }
+}
 
 
 
@@ -100,11 +136,14 @@ void process_audio(void)
     int16_t * buff = sound_i2s_get_next_buffer();
     for(int i=0; i<BLOCK_SIZE; i++)
     {
-        //***  CALCULATE OSCILLATOR VALUES ONE AT A TIME  ***
-        float sine_sig = sine_osc.Process();
 
-        //RUN OSC THRU FILTER
-        float filter_output = lpf.Process(sine_sig);
+        //*** TAKE LFO OUTPUT TO SET MOOG FILTER ***
+        float lfo_sig  = lfo.Process();
+        float freq = 5000 + (lfo_sig * 5000);
+        m_filter.SetFreq(freq);
+        //*** PUT WAVEFORMS THROUGH FILTER  ***
+        float non_filtered_output = choose_osc(button_count);
+        /*float filter_output = m_filter.Process(choose_osc(button_counter()));
 
         //RUN FILTER THRU REVERB
         float reverb_inL = filter_output;
@@ -113,12 +152,13 @@ void process_audio(void)
         float reverb_outR = 0.0f;
         reverb.Process(reverb_inL, reverb_inR, &reverb_outL, &reverb_outR);
 
+        */
         //*****  CONVERT FLOAT TO INT16  AND INTERLEAVE  *****
         // *buff++ = (int16_t)(sine_sig * 32767);      //RIGHT OUTPUT BUFFER LOCATION
         // *buff++ = (int16_t)(rect_sig * 32767);      //LEFT OUTPUT BUFFER LOCATION 
 
-        *buff++ = (int16_t)((reverb_outR) * 32767);      //RIGHT OUTPUT BUFFER LOCATION
-        *buff++ = (int16_t)((reverb_outL) * 32767);      //LEFT OUTPUT BUFFER LOCATION 
+        *buff++ = (int16_t)((non_filtered_output) * 32767);      //RIGHT OUTPUT BUFFER LOCATION
+        *buff++ = (int16_t)((non_filtered_output) * 32767);      //LEFT OUTPUT BUFFER LOCATION 
         
     }
    
@@ -151,14 +191,22 @@ void process_audio(void)
 
 void set_oscillator_frequency(float this_freq)
 {
+    // Set frequency for all oscillators
     sine_osc.SetFreq(this_freq);
-    //rect_osc.SetFreq(this_freq);
+    tri_osc.SetFreq(this_freq);
+    saw_osc.SetFreq(this_freq);
+    square_osc.SetFreq(this_freq);
 }
 
 
-void set_cutoff_freq(float cutoff_freq)
+void set_pwm(float dutycycle)
 {
-    lpf.SetFreq(cutoff_freq);
+    if((dutycycle > 0.01) && (dutycycle < 0.99))
+    {
+        rect_osc.SetPw(dutycycle);
+    }
+    
+
 }
 
 
@@ -184,22 +232,30 @@ void control_val_changed(u8 control_num, u16 val)
         case 0:
         {
             fval *= 4000;
-            sine_osc.SetFreq(fval);
+            set_oscillator_frequency(fval);
         }break;
 
         case 1:
         {  
-            fval = mapfloat(fval, 0, 1, 20, 20000);
-            lpf.SetFreq(fval);
+            // if((fval > 0.01) && (fval < 0.99))
+            // {
+            //     rect_osc.SetPw(fval);
+            // }
+            fval = mapfloat(fval, 0, 1, 0.001, 30);
+            
+            lfo.SetFreq(fval);
+
         }break;
 
         case 2:
         {  
             fval = mapfloat(fval, 0, 1, 0.001, 0.8);
             //m_filter.SetRes(fval);
-              //fval *= 4000;   
+        {   //fval *= 4000;   
             reverb.SetFeedback(fval);  
+        }
             
         }break;
     }
 }
+

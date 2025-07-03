@@ -82,7 +82,7 @@ pico_sdk_init()
 add_library(audio_i2s INTERFACE)
 
 target_include_directories(audio_i2s INTERFACE
-        #${CMAKE_CURRENT_LIST_DIR}/midi
+        ${CMAKE_CURRENT_LIST_DIR}/midi
         ${CMAKE_CURRENT_LIST_DIR}/Daisy_LGPL
         ${CMAKE_CURRENT_LIST_DIR}/Daisy_source
         ${CMAKE_CURRENT_LIST_DIR}/Daisy_source/Utility
@@ -101,9 +101,9 @@ pico_generate_pio_header(audio_i2s ${CMAKE_CURRENT_LIST_DIR}/sound_i2s/sound_i2s
 add_executable(Pico_project 
                         main.cpp
                         adc.cpp
-                        #buttons.cpp
                         audio_process.cpp
-                        #midi/midi.cpp
+                        buttons.cpp
+                        midi/midi.cpp
                         sound_i2s/sound_i2s.c
                         usb/cdc_app.c 
                         #usb/uac2_app.c
@@ -188,7 +188,6 @@ target_link_libraries(  Pico_project        #THIS PROJECT
                         hardware_irq
                         hardware_pio
                         hardware_pwm
-                        hardware_gpio
                         hardware_sync
                         hardware_vreg
                         pico_bootrom
@@ -213,4 +212,4 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
         # USE_AUDIO_PWM=1
         USE_AUDIO_I2S=1
         )
-
+        

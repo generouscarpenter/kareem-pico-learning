@@ -103,7 +103,7 @@ void core1_main()
 
 
 uint32_t core0_main_count;
-uint32_t this_time, blink_time, this_millis, adc_millis;
+uint32_t this_time, blink_time, this_millis;
 bool led_state;
 
 
@@ -216,21 +216,14 @@ int main()
         }
 
         //*******************************
-        //***  EVERY 10 milliseconds   ***
-        //*******************************
-        if(board_millis() != adc_millis)
-        {
-            adc_millis = board_millis();
-            check_adc_vals();           
-        }
-        
-        //*******************************
         //***  ONCE PER MILLISECOND   ***
         //*******************************
         if(board_millis() != this_millis)
         {
             this_millis = board_millis();
             usb_midi_task();
+            check_adc_vals();
+            process_buttons();
             
         }
         
