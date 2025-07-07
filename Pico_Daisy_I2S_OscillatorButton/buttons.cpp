@@ -36,9 +36,9 @@ enum
 
 int button_count = 0;
 
-int button_counter(){
+int button_counter(int count){
     
-    if(button_count < 3){
+    if(button_count < count){
         button_count++;
     }
     else{
@@ -54,7 +54,7 @@ void button_event(u8 this_b)
     {
         case BUTTON_ONE:
         {
-            button_counter();
+            button_counter(3);
         }
         break;
 
