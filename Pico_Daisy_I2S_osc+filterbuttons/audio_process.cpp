@@ -14,8 +14,6 @@ using namespace daisysp;
 alignas(32) int16_t buffer_0[I2S_BLOCK_SIZE * 2];
 alignas(32) int16_t buffer_1[I2S_BLOCK_SIZE * 2];
 
-#define OSC_NUMBER 5
-
 Oscillator sine_osc;
 Oscillator tri_osc;
 Oscillator saw_osc;
@@ -23,6 +21,7 @@ Oscillator square_osc;
 Oscillator rect_osc;
 Oscillator lfo;
 
+static Svf svf_filter;
 static MoogLadder m_filter;
 static Overdrive overdrive;
 static ReverbSc reverb;
@@ -73,9 +72,11 @@ void init_audio_code(void)
     rect_osc.SetFreq(START_FREQ);
     rect_osc.SetAmp(0.5);
 
-    // initialize Moogladder object
+    // initialize filters
+    svf_filter.Init(SAMPLE_RATE);
+
     m_filter.Init(SAMPLE_RATE);
-    m_filter.SetRes(0.7);
+    m_filter.SetRes(0.8);
 
     // intitialize reverb
 
@@ -108,6 +109,20 @@ float choose_osc(int osc_num){
     }
 }
 
+float choose_filter(int filter_num){
+    switch (filter_num) {
+        case 0:
+            return svf_filter.Low(); // Get the low-pass output from the filter
+            break;
+        case 1:
+            return svf_filter.High(); // Get the high-pass output from the filter
+            break;
+        case 2:
+            return m_filter.Process(choose_osc(filter_counter));
+            break;
+        default: return 0.0f;
+    }
+}
 
 
 u32 accum_dt, ave_dt_in_us, accum_dt_count;
@@ -136,15 +151,11 @@ void process_audio(void)
     int16_t * buff = sound_i2s_get_next_buffer();
     for(int i=0; i<BLOCK_SIZE; i++)
     {
-
-        //*** TAKE LFO OUTPUT TO SET MOOG FILTER ***
-        float lfo_sig  = lfo.Process();
-        float freq = 5000 + (lfo_sig * 5000);
-        m_filter.SetFreq(freq);
         //*** PUT WAVEFORMS THROUGH FILTER  ***
-        float non_filtered_output = choose_osc(button_count);
-        /*float filter_output = m_filter.Process(choose_osc(button_counter()));
-
+        //float non_filtered_output = choose_osc(osc_counter);
+        svf_filter.Process(choose_osc(osc_counter));
+        float filter_output = choose_filter(filter_counter);
+        /*
         //RUN FILTER THRU REVERB
         float reverb_inL = filter_output;
         float reverb_inR = filter_output;
@@ -157,8 +168,8 @@ void process_audio(void)
         // *buff++ = (int16_t)(sine_sig * 32767);      //RIGHT OUTPUT BUFFER LOCATION
         // *buff++ = (int16_t)(rect_sig * 32767);      //LEFT OUTPUT BUFFER LOCATION 
 
-        *buff++ = (int16_t)((non_filtered_output) * 32767);      //RIGHT OUTPUT BUFFER LOCATION
-        *buff++ = (int16_t)((non_filtered_output) * 32767);      //LEFT OUTPUT BUFFER LOCATION 
+        *buff++ = (int16_t)((filter_output) * 32767);      //RIGHT OUTPUT BUFFER LOCATION
+        *buff++ = (int16_t)((filter_output) * 32767);      //LEFT OUTPUT BUFFER LOCATION 
         
     }
    
@@ -198,6 +209,21 @@ void set_oscillator_frequency(float this_freq)
     square_osc.SetFreq(this_freq);
 }
 
+void set_filter_frequency(float this_freq)
+{
+    // Set frequency for filter
+    m_filter.SetFreq(this_freq);
+    svf_filter.SetFreq(this_freq);
+
+
+}
+
+void set_filter_resonance(float this_res)
+{
+    // Set resonance for filter
+    m_filter.SetRes(this_res);
+    svf_filter.SetRes(this_res);
+}
 
 void set_pwm(float dutycycle)
 {
@@ -237,13 +263,8 @@ void control_val_changed(u8 control_num, u16 val)
 
         case 1:
         {  
-            // if((fval > 0.01) && (fval < 0.99))
-            // {
-            //     rect_osc.SetPw(fval);
-            // }
-            fval = mapfloat(fval, 0, 1, 0.001, 30);
-            
-            lfo.SetFreq(fval);
+            fval = mapfloat(fval, 0, 1, 20, 16000);
+            set_filter_frequency(fval);
 
         }break;
 
@@ -258,3 +279,4 @@ void control_val_changed(u8 control_num, u16 val)
         }break;
     }
 }
+
